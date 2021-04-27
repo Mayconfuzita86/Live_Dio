@@ -2,4 +2,6 @@
     <string name="app_name">LiveDio</string>
     <string name="title_1">Nossos serviços</string>
     <string name="subtitle_1">disponíveis para você</string>
+    <string name="hello_user">olá, Maycon</string>
+    <string name="service_account">Ag: 3300 Conta: 007821</string>
 </resources>

@@ -3,6 +3,7 @@ package com.dioinnovation.livedio
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -11,7 +12,7 @@ class MenuItemAdapter: RecyclerView.Adapter<MenuItemAdapter.MenuItemAdapterViewH
     private val list = mutableListOf<MenuItemModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemAdapterViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_main, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_menu, parent, false)
         return MenuItemAdapterViewHolder(view)
     }
 
@@ -23,10 +24,18 @@ class MenuItemAdapter: RecyclerView.Adapter<MenuItemAdapter.MenuItemAdapterViewH
         return list.size
     }
 
-    class MenuItemAdapterViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView){
+    fun setItemsList(list: List<MenuItemModel>){ //limpa e adiciona os itens
+        this.list.clear()
+        this.list.addAll(list)
+    }
 
+    class MenuItemAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+        private val tvTitle by lazy {
+            itemView.findViewById<TextView>(R.id.tv_title)
+        }
         fun startViews(item: MenuItemModel){
-
+            tvTitle.text = item.title
         }
     }
 }
